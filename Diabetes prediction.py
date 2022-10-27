@@ -119,12 +119,14 @@ print(X.shape, X_train.shape, X_test.shape)
 
 
 classifier = svm.SVC(kernel='linear')
+classifier2 = svm.SVC(kernel='rbf')
 
 
 # In[30]:
 
 
 classifier.fit(X_train, Y_train)
+classifier2.fit(X_train, Y_train)
 
 
 # In[31]:
@@ -133,11 +135,15 @@ classifier.fit(X_train, Y_train)
 X_train_prediction = classifier.predict(X_train)
 training_data_accuracy = accuracy_score(X_train_prediction, Y_train)
 
+X_train_prediction2 = classifier2.predict(X_train)
+training_data_accuracy2 = accuracy_score(X_train_prediction2, Y_train)
+
 
 # In[32]:
 
 
-print('Accuracy score of the training data : ', training_data_accuracy)
+print('Accuracy score of the training data with linear kernel : ', training_data_accuracy)
+print('Accuracy score of the training data with rbf kernel : ', training_data_accuracy2)
 
 
 # In[ ]:
